@@ -11,12 +11,15 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 Spinner title;
 EditText etName;
 TextView tvDisplay;
 ImageView ivGirl;
 Button btnSubmit;
+private final pronouns Noun= new pronouns();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +41,23 @@ Button btnSubmit;
                 if (title.getSelectedItem().equals("Mr")){
                     ivGirl.setVisibility(View.VISIBLE);
                     ivGirl.setImageResource(R.drawable._7e0199dd2cbe80748206c1019246756);
-                    tvDisplay.setText("Welcome! "+title.getSelectedItem() + " "+name);
+                    tvDisplay.setText(String.format("Welcome! %s %s", title.getSelectedItem(), name));
+                    List<String> pro = Noun.Pronoun(String.valueOf(title.getSelectedItem()));
+                    StringBuilder gen = new StringBuilder();
+                    for (String Gender: pro){
+                        gen.append(Gender).append(", ");
+                    }
+                    tvDisplay.setText((new StringBuilder().append("Welcome! ").append(title.getSelectedItem()).append( name).append("\n").append("Pronouns: ").append( gen).toString()));
                 }
                 else if (title.getSelectedItem().equals("Ms")){
                     ivGirl.setVisibility(View.VISIBLE);
-                    tvDisplay.setText("Welcome! "+ title.getSelectedItem() + " "+name);
+                    ivGirl.setImageResource(R.drawable._31f6043_4973_455c_b9e8_0fbbf4f06f68__1_);
+                    List<String> pro = Noun.Pronoun(String.valueOf(title.getSelectedItem()));
+                    StringBuilder gen = new StringBuilder();
+                    for (String Gender: pro){
+                        gen.append(Gender).append(", ");
+                    }
+                    tvDisplay.setText((new StringBuilder().append("Welcome! ").append(title.getSelectedItem()).append(name).append("\n").append("Pronouns: ").append(gen).toString()));
                 }
             }
         }
