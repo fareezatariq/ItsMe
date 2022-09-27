@@ -3,9 +3,9 @@
     <string name="enter_your_first_name">Enter Your Name</string>
     <string name="register_yourself">Register Yourself</string>
     <string name="gender">gender</string>
+    <string name="register">Register</string>
     <string-array name="honorific">
         <item>Mr</item>
         <item>Ms</item>
-        <item>Mrs</item>
     </string-array>
 </resources>
